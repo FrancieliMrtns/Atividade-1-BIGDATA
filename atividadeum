@@ -1,0 +1,23 @@
+import numpy as np
+import statistics
+import random
+
+idades = [random.randint(0, 100) for _ in range(1000)]
+
+media_idades = round(np.mean(idades))
+moda_idades = statistics.mode(idades)
+mediana_idades = round(np.median(idades))
+
+print(f'Idade média: {media_idades}')
+print(f'Moda das idades: {moda_idades}')
+print(f'Mediana das idades: {mediana_idades}')
+
+idades_adultas = [idade for idade in idades if idade >= 21]
+media_idades_adultas = round(np.mean(idades_adultas))
+
+idades_atualizadas = [idade if idade >= 21 else media_idades_adultas for idade in idades]
+
+print(f'\nMédia das idades adultas (>=21): {media_idades_adultas}')
+print('Lista atualizada de idades:')
+print(idades_atualizadas[:100])
+
